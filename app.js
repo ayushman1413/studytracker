@@ -314,7 +314,7 @@ function handleAssignmentSubmit(e) {
   }
 
   // update subject ko save karega
-  
+
   saveData()
   loadAssignments()
   updateStats()
@@ -458,7 +458,7 @@ function handleSyllabusSubmit(e) {
     appData.syllabus.push(newSyllabusItem)
   }
 
-  // Save data and update UI
+  // ui pe  Save data and update karega
   saveData()
   loadSyllabus()
   updateStats()
