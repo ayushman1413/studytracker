@@ -247,7 +247,9 @@ function handleSubjectSubmit(e) {
   const color = document.getElementById("subject-color").value
 
   if (id) {
-    // Update existing subject
+
+    // subjct ko update karna
+
     const index = appData.subjects.findIndex((subject) => subject.id === id)
     if (index !== -1) {
       appData.subjects[index] = {
@@ -311,7 +313,8 @@ function handleAssignmentSubmit(e) {
     appData.assignments.push(newAssignment)
   }
 
-  // Save data and update UI
+  // update subject ko save karega
+  
   saveData()
   loadAssignments()
   updateStats()
