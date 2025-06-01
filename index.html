@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Tracker for BCA Students</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <div class="container">
+    <header>
+      <h1>Study Tracker <span>for BCA Students</span></h1>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="dashboard">
+      <div class="stats">
+        <div class="stat-card">
+          <i class="fas fa-book"></i>
+          <div class="stat-info">
+            <h3>Subjects</h3>
+            <p id="subject-count">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-tasks"></i>
+          <div class="stat-info">
+            <h3>Assignments</h3>
+            <p id="assignment-count">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-calendar-alt"></i>
+          <div class="stat-info">
+            <h3>Exams</h3>
+            <p id="exam-count">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-bullseye"></i>
+          <div class="stat-info">
+            <h3>Goals</h3>
+            <p id="goal-count">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-graduation-cap"></i>
+          <div class="stat-info">
+            <h3>Syllabus Topics</h3>
+            <p id="syllabus-count">0</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-check-circle"></i>
+          <div class="stat-info">
+            <h3>Completed</h3>
+            <p id="completed-topics">0/0 (0%)</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-star"></i>
+          <div class="stat-info">
+            <h3>Important Topics</h3>
+            <p id="important-topics">0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="upcoming-exams">
+        <h2>Upcoming Exams</h2>
+        <div id="exams-countdown" class="exams-countdown">
+          <p class="no-data">No upcoming exams</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="subjects">Subjects</button>
+      <button class="tab-btn" data-tab="assignments">Assignments</button>
+      <button class="tab-btn" data-tab="exams">Exams</button>
+      <button class="tab-btn" data-tab="goals">Study Goals</button>
+      <button class="tab-btn" data-tab="syllabus">Syllabus</button>
+      <button class="tab-btn" data-tab="questions">Practice Questions</button>
+      <button class="tab-btn" data-tab="videos">Video Lectures</button>
+      <button class="tab-btn" data-tab="doubts">Doubts</button>
+      <button class="tab-btn" data-tab="timer">Study Timer</button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Subjects Tab -->
+      <div id="subjects" class="tab-pane active">
+        <div class="section-header">
+          <h2>Subjects</h2>
+          <button id="add-subject-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Subject
+          </button>
+        </div>
+        <div id="subjects-list" class="subjects-list">
+          <p class="no-data">No subjects added yet</p>
+        </div>
+      </div>
+
+      <!-- Assignments Tab -->
+      <div id="assignments" class="tab-pane">
+        <div class="section-header">
+          <h2>Assignments</h2>
+          <button id="add-assignment-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Assignment
+          </button>
+        </div>
+        <div id="assignments-list" class="assignments-list">
+          <p class="no-data">No assignments added yet</p>
+        </div>
+      </div>
+
+      <!-- Exams Tab -->
+      <div id="exams" class="tab-pane">
+        <div class="section-header">
+          <h2>Exams</h2>
+          <button id="add-exam-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Exam
+          </button>
+        </div>
+        <div id="exams-list" class="exams-list">
+          <p class="no-data">No exams added yet</p>
+        </div>
+      </div>
+
+      <!-- Goals Tab -->
+      <div id="goals" class="tab-pane">
+        <div class="section-header">
+          <h2>Study Goals</h2>
+          <button id="add-goal-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Goal
+          </button>
+        </div>
+        <div id="goals-list" class="goals-list">
+          <p class="no-data">No goals added yet</p>
+        </div>
+      </div>
+      
+      <!-- Syllabus Tab -->
+      <div id="syllabus" class="tab-pane">
+        <div class="section-header">
+          <h2>BCA Syllabus</h2>
+          <button id="add-syllabus-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Syllabus Topic
+          </button>
+        </div>
+        <div id="syllabus-list" class="syllabus-list">
+          <p class="no-data">No syllabus items added yet</p>
+        </div>
+      </div>
+      
+      <!-- Practice Questions Tab -->
+      <div id="questions" class="tab-pane">
+        <div class="section-header">
+          <h2>Practice Questions</h2>
+          <button id="add-question-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Question
+          </button>
+        </div>
+        <div id="questions-list" class="questions-list">
+          <p class="no-data">No practice questions added yet</p>
+        </div>
+      </div>
+      
+      <!-- Video Lectures Tab -->
+      <div id="videos" class="tab-pane">
+        <div class="section-header">
+          <h2>Video Lectures</h2>
+          <button id="add-video-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Video Lecture
+          </button>
+        </div>
+        <div id="videos-list" class="videos-list">
+          <p class="no-data">No video lectures added yet</p>
+        </div>
+      </div>
+      
+      <!-- Doubts Tab -->
+      <div id="doubts" class="tab-pane">
+        <div class="section-header">
+          <h2>Doubts</h2>
+          <button id="add-doubt-btn" class="btn">
+            <i class="fas fa-plus"></i> Add Doubt
+          </button>
+        </div>
+        <div id="doubts-list" class="doubts-list">
+          <p class="no-data">No doubts added yet</p>
+        </div>
+      </div>
+      
+      <!-- Study Timer Tab -->
+      <div id="timer" class="tab-pane">
+        <div class="section-header">
+          <h2>Study Timer</h2>
+        </div>
+        <div class="study-timer">
+          <div class="timer-topic" id="timer-topic">No topic selected</div>
+          <div class="timer-display" id="timer-display">00:00:00</div>
+          <div class="timer-controls">
+            <button id="start-timer-btn" class="btn">
+              <i class="fas fa-play"></i> Start
+            </button>
+            <button id="pause-timer-btn" class="btn btn-warning" disabled>
+              <i class="fas fa-pause"></i> Pause
+            </button>
+            <button id="stop-timer-btn" class="btn btn-danger" disabled>
+              <i class="fas fa-stop"></i> Stop
+            </button>
+          </div>
+        </div>
+        <div id="study-time-stats" class="study-time-stats">
+          <div class="study-time-total">
+            <h3>Total Study Time</h3>
+            <p>00:00:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding/editing subjects -->
+  <div id="subject-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="subject-modal-title">Add Subject</h2>
+      <form id="subject-form">
+        <input type="hidden" id="subject-id">
+        <div class="form-group">
+          <label for="subject-name">Subject Name</label>
+          <input type="text" id="subject-name" required>
+        </div>
+        <div class="form-group">
+          <label for="subject-code">Subject Code</label>
+          <input type="text" id="subject-code" required>
+        </div>
+        <div class="form-group">
+          <label for="teacher-name">Teacher Name</label>
+          <input type="text" id="teacher-name">
+        </div>
+        <div class="form-group">
+          <label for="subject-color">Color</label>
+          <input type="color" id="subject-color" value="#4CAF50">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for adding/editing assignments -->
+  <div id="assignment-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="assignment-modal-title">Add Assignment</h2>
+      <form id="assignment-form">
+        <input type="hidden" id="assignment-id">
+        <div class="form-group">
+          <label for="assignment-subject">Subject</label>
+          <select id="assignment-subject" required>
+            <option value="">Select Subject</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="assignment-title">Title</label>
+          <input type="text" id="assignment-title" required>
+        </div>
+        <div class="form-group">
+          <label for="assignment-deadline">Deadline</label>
+          <input type="datetime-local" id="assignment-deadline" required>
+        </div>
+        <div class="form-group">
+          <label for="assignment-description">Description</label>
+          <textarea id="assignment-description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for adding/editing exams -->
+  <div id="exam-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="exam-modal-title">Add Exam</h2>
+      <form id="exam-form">
+        <input type="hidden" id="exam-id">
+        <div class="form-group">
+          <label for="exam-subject">Subject</label>
+          <select id="exam-subject" required>
+            <option value="">Select Subject</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exam-date">Date & Time</label>
+          <input type="datetime-local" id="exam-date" required>
+        </div>
+        <div class="form-group">
+          <label for="exam-location">Location</label>
+          <input type="text" id="exam-location">
+        </div>
+        <div class="form-group">
+          <label for="exam-notes">Notes</label>
+          <textarea id="exam-notes"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal for adding/editing goals -->
+  <div id="goal-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="goal-modal-title">Add Study Goal</h2>
+      <form id="goal-form">
+        <input type="hidden" id="goal-id">
+        <div class="form-group">
+          <label for="goal-subject">Subject</label>
+          <select id="goal-subject" required>
+            <option value="">Select Subject</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="goal-title">Goal Title</label>
+          <input type="text" id="goal-title" required>
+        </div>
+        <div class="form-group">
+          <label for="goal-target">Target (e.g., number of chapters)</label>
+          <input type="number" id="goal-target" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="goal-deadline">Deadline</label>
+          <input type="date" id="goal-deadline" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal for adding/editing syllabus items -->
+  <div id="syllabus-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="syllabus-modal-title">Add Syllabus Topic</h2>
+      <form id="syllabus-form">
+        <input type="hidden" id="syllabus-id">
+        <div class="form-group">
+          <label for="syllabus-subject">Subject</label>
+          <select id="syllabus-subject" required>
+            <option value="">Select Subject</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="syllabus-unit">Unit Number</label>
+          <input type="number" id="syllabus-unit" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="syllabus-chapter">Chapter Number</label>
+          <input type="number" id="syllabus-chapter" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="syllabus-topic">Topic Name</label>
+          <input type="text" id="syllabus-topic" required>
+        </div>
+        <div class="form-group">
+          <label for="syllabus-description">Description</label>
+          <textarea id="syllabus-description"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="syllabus-important">
+            Mark as Important Topic
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal for adding/editing practice questions -->
+  <div id="question-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="question-modal-title">Add Practice Question</h2>
+      <form id="question-form">
+        <input type="hidden" id="question-id">
+        <div class="form-group">
+          <label for="question-syllabus">Related Topic</label>
+          <select id="question-syllabus" required>
+            <option value="">Select Topic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="question-text">Question</label>
+          <textarea id="question-text" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="question-answer">Answer (Optional)</label>
+          <textarea id="question-answer"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="question-difficulty">Difficulty Level</label>
+          <select id="question-difficulty" required>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal for adding/editing video lectures -->
+  <div id="video-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="video-modal-title">Add Video Lecture</h2>
+      <form id="video-form">
+        <input type="hidden" id="video-id">
+        <div class="form-group">
+          <label for="video-syllabus">Related Topic</label>
+          <select id="video-syllabus" required>
+            <option value="">Select Topic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="video-title">Video Title</label>
+          <input type="text" id="video-title" required>
+        </div>
+        <div class="form-group">
+          <label for="video-url">Video URL</label>
+          <input type="url" id="video-url" required>
+        </div>
+        <div class="form-group">
+          <label for="video-description">Description (Optional)</label>
+          <textarea id="video-description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal for adding/editing doubts -->
+  <div id="doubt-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="doubt-modal-title">Add Doubt</h2>
+      <form id="doubt-form">
+        <input type="hidden" id="doubt-id">
+        <div class="form-group">
+          <label for="doubt-syllabus">Related Topic</label>
+          <select id="doubt-syllabus" required>
+            <option value="">Select Topic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="doubt-question">Your Doubt/Question</label>
+          <textarea id="doubt-question" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="doubt-status">Status</label>
+          <select id="doubt-status" required>
+            <option value="unsolved">Unsolved</option>
+            <option value="solved">Solved</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="doubt-solution">Solution (Optional)</label>
+          <textarea id="doubt-solution"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Resource Modal -->
+  <div id="resource-modal" class="resource-modal-content">
+    <!-- Content will be dynamically generated -->
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
