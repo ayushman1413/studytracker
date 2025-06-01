@@ -1477,7 +1477,7 @@ function showTopicVideos(topicId) {
   })
 }
 
-// Show topic questions
+//  topic questions  ko show karayega
 function showTopicQuestions(topicId) {
   const questions = appData.practiceQuestions.filter((q) => q.syllabusId === topicId)
   const syllabusItem = appData.syllabus.find((s) => s.id === topicId)
