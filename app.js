@@ -508,7 +508,8 @@ function handleQuestionSubmit(e) {
   saveData()
   loadPracticeQuestions()
 
-  // Close modal
+  // modal close ho jaeyag
+  
   document.getElementById("question-modal").style.display = "none"
 }
 
