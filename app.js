@@ -491,7 +491,7 @@ function handleQuestionSubmit(e) {
       }
     }
   } else {
-    // Add new question
+    //  new question add kar sakte hain
     const newQuestion = {
       id: generateId(),
       syllabusId,
