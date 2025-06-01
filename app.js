@@ -509,7 +509,7 @@ function handleQuestionSubmit(e) {
   loadPracticeQuestions()
 
   // modal close ho jaeyag
-  
+
   document.getElementById("question-modal").style.display = "none"
 }
 
@@ -524,7 +524,7 @@ function handleVideoSubmit(e) {
   const description = document.getElementById("video-description").value
 
   if (id) {
-    // Update existing video
+    //  existing video update karna
     const index = appData.videoLectures.findIndex((item) => item.id === id)
     if (index !== -1) {
       appData.videoLectures[index] = {
@@ -536,7 +536,7 @@ function handleVideoSubmit(e) {
       }
     }
   } else {
-    // Add new video
+    //  new video
     const newVideo = {
       id: generateId(),
       syllabusId,
