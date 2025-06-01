@@ -468,7 +468,7 @@ function handleSyllabusSubmit(e) {
   document.getElementById("syllabus-modal").style.display = "none"
 }
 
-// Handle practice question form submission
+// practice question form submission ko handle karega
 function handleQuestionSubmit(e) {
   e.preventDefault()
 
