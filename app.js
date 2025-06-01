@@ -536,7 +536,7 @@ function handleVideoSubmit(e) {
       }
     }
   } else {
-    //  new video
+    //  new video ko add karna
     const newVideo = {
       id: generateId(),
       syllabusId,
