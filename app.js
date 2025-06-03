@@ -1298,7 +1298,6 @@ function toggleAssignmentStatus(assignmentId) {
   }
 }
 
-// Toggle topic completion status
 function toggleTopicCompletion(topicId) {
   const index = appData.syllabus.findIndex((item) => item.id === topicId)
 
