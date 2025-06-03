@@ -1152,7 +1152,6 @@ function loadVideoLectures() {
   videosList.innerHTML = html
 }
 
-// Load doubts
 function loadDoubts() {
   const doubtsList = document.getElementById("doubts-list")
 
